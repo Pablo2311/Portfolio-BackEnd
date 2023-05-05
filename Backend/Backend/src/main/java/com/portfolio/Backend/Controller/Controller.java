@@ -2,8 +2,10 @@ package com.portfolio.Backend.Controller;
 
 import com.portfolio.Backend.Model.About;
 import com.portfolio.Backend.Service.IAboutService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -16,6 +18,11 @@ public class Controller {
     
     @Autowired
     private IAboutService interAbout;
+    
+    @GetMapping ("/sobre-mi")
+    public List<About> getAbout () {
+        return interAbout.getAbout();
+    }
     
     @PostMapping ("/sobre-mi/crear")
     public String crearAbout(@RequestBody About sobre) {

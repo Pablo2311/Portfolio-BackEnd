@@ -4,6 +4,7 @@ import com.portfolio.Backend.Repository.AboutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.portfolio.Backend.Model.About;
+import java.util.List;
 
 @Service
 public class AboutService implements IAboutService {
@@ -27,8 +28,9 @@ public class AboutService implements IAboutService {
         return sobre;
     }
     
-    //@Override
-  //  public About editAbout(Long id) {
- //       AboutRepo.save(sobre);
-  //  }
+    @Override
+    public List<About> getAbout() {
+        List<About> listaAbout = AboutRepo.findAll();
+        return listaAbout;
+    }
 }
