@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,10 +14,10 @@ public class Education {
     @Id
     @GeneratedValue(strategy =GenerationType.AUTO)
     private Long id;
-    private String titulo;
+    //private String titulo;
     private String institucion;
-    private Date desde;
-    private Date hasta;
+    private String desde;
+    private String hasta;
     private String descripcion;
     
 }

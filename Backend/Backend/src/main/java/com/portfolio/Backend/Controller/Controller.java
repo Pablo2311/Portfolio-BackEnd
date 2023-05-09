@@ -4,6 +4,7 @@ import com.portfolio.Backend.Model.About;
 import com.portfolio.Backend.Service.IAboutService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,12 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+//@CrossOrigin ("https://portfolio-angular-8c6ad.web.app/")
 public class Controller {
     
     @Autowired
     private IAboutService interAbout;
     
     @GetMapping ("/sobre-mi")
+    //@CrossOrigin ("https://portfolio-angular-8c6ad.web.app/")
     public List<About> getAbout () {
         return interAbout.getAbout();
     }
