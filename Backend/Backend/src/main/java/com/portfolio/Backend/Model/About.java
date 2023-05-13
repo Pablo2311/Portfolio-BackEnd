@@ -17,4 +17,27 @@ public class About {
     private String titulo;
     private String parrafo;
     
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
+    public String getTitulo() {
+        return titulo;
+    }
+    
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+    
+    public String getParrafo() {
+        return parrafo;
+    }
+    
+    public void setParrafo(String parrafo) {
+        this.parrafo = parrafo;
+    }
 }

@@ -11,7 +11,13 @@ public class AboutService implements IAboutService {
     
     @Autowired
     private AboutRepository AboutRepo;
-
+    
+    @Override
+    public List<About> getAbout() {
+        List<About> listaAbout = AboutRepo.findAll();
+        return listaAbout;
+    }
+    
     @Override
     public void saveAbout(About sobre) {
         AboutRepo.save(sobre);
@@ -26,11 +32,5 @@ public class AboutService implements IAboutService {
     public About findAbout(Long id) {
         About sobre = AboutRepo.findById(id).orElse(null);
         return sobre;
-    }
-    
-    @Override
-    public List<About> getAbout() {
-        List<About> listaAbout = AboutRepo.findAll();
-        return listaAbout;
     }
 }

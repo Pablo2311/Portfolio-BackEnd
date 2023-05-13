@@ -11,20 +11,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@CrossOrigin ("https://portfolio-angular-8c6ad.web.app/")
-public class Controller {
+@CrossOrigin ("http://localhost:4200")
+public class AboutController {
     
     @Autowired
     private IAboutService interAbout;
     
     @GetMapping ("/sobre-mi")
-    //@CrossOrigin ("https://portfolio-angular-8c6ad.web.app/")
+    //@CrossOrigin ("http://localhost:4200")
     public List<About> getAbout () {
         return interAbout.getAbout();
+    }
+    
+    @GetMapping ("/sobre-mi/{id}")
+    public About getUnAbout (@PathVariable Long id) {
+        return interAbout.findAbout(id);
     }
     
     @PostMapping ("/sobre-mi/crear")
@@ -40,14 +44,12 @@ public class Controller {
     }
     
     @PutMapping ("/sobre-mi/editar/{id}")
-    public String editarAbout (@PathVariable Long id,
-                               @RequestParam ("titulo") String nuevoTitulo,
-                               @RequestParam ("parrafo") String nuevoParrafo) {
+    public String editarAbout (@RequestBody About sobre, @PathVariable Long id) {
         
-        About sobre = interAbout.findAbout(id);
+        About sobreActual = interAbout.findAbout(id);
         
-        sobre.setTitulo(nuevoTitulo);
-        sobre.setParrafo(nuevoParrafo);
+        sobreActual.setTitulo(sobre.getTitulo());
+        sobreActual.setParrafo(sobre.getParrafo());
         
         interAbout.saveAbout(sobre);
         

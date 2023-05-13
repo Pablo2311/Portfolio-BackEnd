@@ -31,7 +31,7 @@ public class Education {
         return institucion;
     }
     
-    public void setId(String institucion) {
+    public void setInstitucion(String institucion) {
         this.institucion = institucion;
     }
     
