@@ -1,4 +1,5 @@
 FROM amazoncorretto:17
-MAINTAINER Pablo2311
-COPY target/Backend-0.0.1-SNAPSHOT Backend-0.0.1-SNAPSHOT
+
+COPY target/Backend-0.0.1-SNAPSHOT.jar Backend-0.0.1-SNAPSHOT.jar
+
 ENTRYPOINT ["java","-jar","/Backend-0.0.1-SNAPSHOT.jar"]
