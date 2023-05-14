@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin ("http://localhost:4200")
+@CrossOrigin ("https://portfolio-angular-8c6ad.web.app/")
 public class ExperienceController {
     
     @Autowired
